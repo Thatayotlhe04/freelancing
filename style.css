@@ -1,0 +1,106 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background-color: #f1f5f9;
+  color: #1f2937;
+  line-height: 1.6;
+}
+header {
+  background: linear-gradient(135deg, #48a6a7, #2b6b6c);
+  color: white;
+  padding: 60px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+ header h1 {font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 0.5px;
+  transform: translateY(20px);
+  opacity: 0;
+  animation: slideIn 0.8s ease forwards;
+}
+header p {
+  font-size: 1.2rem;
+  margin: 1rem 0 0;
+  opacity: 0.9;
+  transform: translateY(20px);
+  opacity: 0;
+  animation: slideIn 0.8s ease 0.2s forwards;
+}
+
+
+.button {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.button h2 {
+  font-size: 1.8rem;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+.button p {
+  font-size: 1rem;
+  color: #4b5563;
+  margin: 0.5rem 0;
+}
+.button a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.button a:hover {
+  color: #1e40af;
+  text-decoration: underline;
+}
+
+
+@keyframes slideIn {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@media (max-width: 600px) {
+  header {
+    padding: 40px 15px;
+  }
+
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  .button {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .button h2 {
+    font-size: 1.5rem;
+  }
+
+  .button p {
+    font-size: 0.9rem;
+  }
+}
+  
