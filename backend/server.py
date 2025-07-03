@@ -169,7 +169,7 @@ async def delete_expense(entry_id: str):
 @app.get("/api/milestones")
 async def get_milestones():
     milestones = await db.milestones.find().sort("target_amount", 1).to_list(10)
-    return milestones
+    return parse_json(milestones)
 
 @app.put("/api/milestones/{milestone_id}")
 async def update_milestone(milestone_id: str, milestone: Milestone):
