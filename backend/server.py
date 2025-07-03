@@ -156,7 +156,7 @@ async def add_expense(entry: ExpenseEntry):
 @app.get("/api/expenses")
 async def get_expenses():
     expense_entries = await db.expenses.find().sort("date", -1).to_list(100)
-    return expense_entries
+    return parse_json(expense_entries)
 
 @app.delete("/api/expenses/{entry_id}")
 async def delete_expense(entry_id: str):
