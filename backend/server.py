@@ -112,7 +112,7 @@ async def get_dashboard():
     # Get milestones
     milestones = await db.milestones.find().sort("target_amount", 1).to_list(10)
     
-    return {
+    return parse_json({
         "total_income": total_income,
         "total_expenses": total_expenses,
         "net_progress": net_progress,
@@ -121,7 +121,7 @@ async def get_dashboard():
         "recent_income": recent_income,
         "recent_expenses": recent_expenses,
         "milestones": milestones
-    }
+    })
 
 # Income endpoints
 @app.post("/api/income")
