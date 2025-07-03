@@ -51,6 +51,12 @@ class ExpenseEntry(BaseModel):
     description: Optional[str] = None
     date: date
     created_at: Optional[datetime] = None
+    
+    def dict(self, *args, **kwargs):
+        data = super().dict(*args, **kwargs)
+        if isinstance(data.get('date'), date):
+            data['date'] = datetime.combine(data['date'], datetime.min.time())
+        return data
 
 class Milestone(BaseModel):
     id: Optional[str] = None
