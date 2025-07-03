@@ -73,6 +73,12 @@ class JournalEntry(BaseModel):
     date: date
     mood: Optional[str] = None  # positive, negative, neutral
     created_at: Optional[datetime] = None
+    
+    def dict(self, *args, **kwargs):
+        data = super().dict(*args, **kwargs)
+        if isinstance(data.get('date'), date):
+            data['date'] = datetime.combine(data['date'], datetime.min.time())
+        return data
 
 # Initialize milestones
 @app.on_event("startup")
