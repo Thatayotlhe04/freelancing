@@ -135,7 +135,7 @@ async def add_income(entry: IncomeEntry):
 @app.get("/api/income")
 async def get_income():
     income_entries = await db.income.find().sort("date", -1).to_list(100)
-    return income_entries
+    return parse_json(income_entries)
 
 @app.delete("/api/income/{entry_id}")
 async def delete_income(entry_id: str):
