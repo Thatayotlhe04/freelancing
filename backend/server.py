@@ -6,6 +6,8 @@ from typing import List, Optional
 from datetime import datetime, date
 import os
 import uuid
+import json
+from bson import json_util
 
 app = FastAPI(title="Financial Roadmap API", version="1.0.0")
 
