@@ -193,7 +193,7 @@ async def add_journal_entry(entry: JournalEntry):
 @app.get("/api/journal")
 async def get_journal_entries():
     journal_entries = await db.journal.find().sort("date", -1).to_list(100)
-    return journal_entries
+    return parse_json(journal_entries)
 
 @app.delete("/api/journal/{entry_id}")
 async def delete_journal_entry(entry_id: str):
