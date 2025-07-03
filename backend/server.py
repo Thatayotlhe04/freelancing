@@ -242,10 +242,10 @@ async def get_monthly_progress():
     ]
     expense_data = await db.expenses.aggregate(expense_pipeline).to_list(20)
     
-    return {
+    return parse_json({
         "income_by_month": income_data,
         "expenses_by_month": expense_data
-    }
+    })
 
 @app.get("/api/health")
 async def health_check():
