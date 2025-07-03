@@ -11,6 +11,10 @@ from bson import json_util
 
 app = FastAPI(title="Financial Roadmap API", version="1.0.0")
 
+# Custom JSON encoder for MongoDB objects
+def parse_json(data):
+    return json.loads(json_util.dumps(data))
+
 # CORS middleware
 app.add_middleware(
     CORSMiddleware,
