@@ -209,7 +209,7 @@ async def get_income_by_source():
         {"$group": {"_id": "$source", "total": {"$sum": "$amount"}, "count": {"$sum": 1}}}
     ]
     result = await db.income.aggregate(pipeline).to_list(10)
-    return result
+    return parse_json(result)
 
 @app.get("/api/analytics/monthly-progress")
 async def get_monthly_progress():
